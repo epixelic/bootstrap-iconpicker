@@ -26,16 +26,17 @@ module.exports = function(grunt) {
             },
             iconset: {
                 files: {
-                    'temp/js/iconset/iconset-elusiveicon-all.min.js':       ['src/js/iconset/iconset-elusiveicon-all.js'],
-                    'temp/js/iconset/iconset-flagicon-all.min.js':          ['src/js/iconset/iconset-flagicon-all.js'],
-                    'temp/js/iconset/iconset-fontawesome-all.min.js':       ['src/js/iconset/iconset-fontawesome-all.js'],
-                    'temp/js/iconset/iconset-glyphicon-all.min.js':         ['src/js/iconset/iconset-glyphicon-all.js'],
-                    'temp/js/iconset/iconset-ionicon-all.min.js':           ['src/js/iconset/iconset-ionicon-all.js'],
-                    'temp/js/iconset/iconset-mapicon-all.min.js':           ['src/js/iconset/iconset-mapicon-all.js'],
-                    'temp/js/iconset/iconset-materialdesign-all.min.js':    ['src/js/iconset/iconset-materialdesign-all.js'],
-                    'temp/js/iconset/iconset-octicon-all.min.js':           ['src/js/iconset/iconset-octicon-all.js'],
-                    'temp/js/iconset/iconset-typicon-all.min.js':           ['src/js/iconset/iconset-typicon-all.js'],
-                    'temp/js/iconset/iconset-weathericon-all.min.js':       ['src/js/iconset/iconset-weathericon-all.js']
+                    // 'temp/js/iconset/iconset-elusiveicon-all.min.js':       ['src/js/iconset/iconset-elusiveicon-all.js'],
+                    // 'temp/js/iconset/iconset-flagicon-all.min.js':          ['src/js/iconset/iconset-flagicon-all.js'],
+                    // 'temp/js/iconset/iconset-fontawesome-all.min.js':       ['src/js/iconset/iconset-fontawesome-all.js'],
+                    'temp/js/iconset/iconset-fontawesome5-all.min.js':      ['src/js/iconset/iconset-fontawesome5-all.js'],
+                    // 'temp/js/iconset/iconset-glyphicon-all.min.js':         ['src/js/iconset/iconset-glyphicon-all.js'],
+                    // 'temp/js/iconset/iconset-ionicon-all.min.js':           ['src/js/iconset/iconset-ionicon-all.js'],
+                    // 'temp/js/iconset/iconset-mapicon-all.min.js':           ['src/js/iconset/iconset-mapicon-all.js'],
+                    // 'temp/js/iconset/iconset-materialdesign-all.min.js':    ['src/js/iconset/iconset-materialdesign-all.js'],
+                    // 'temp/js/iconset/iconset-octicon-all.min.js':           ['src/js/iconset/iconset-octicon-all.js'],
+                    // 'temp/js/iconset/iconset-typicon-all.min.js':           ['src/js/iconset/iconset-typicon-all.js'],
+                    // 'temp/js/iconset/iconset-weathericon-all.min.js':       ['src/js/iconset/iconset-weathericon-all.js']
                 }
             }
         },
@@ -78,16 +79,17 @@ module.exports = function(grunt) {
                     banner: banner.get('bootstrap-iconpicker-iconset.js')
                 },
                 src: [
-                    'src/js/iconset/iconset-elusiveicon-all.js',
-                    'src/js/iconset/iconset-flagicon-all.js',
-                    'src/js/iconset/iconset-fontawesome-all.js',
-                    'src/js/iconset/iconset-glyphicon-all.js',
-                    'src/js/iconset/iconset-ionicon-all.js',
-                    'src/js/iconset/iconset-mapicon-all.js',
-                    'src/js/iconset/iconset-materialdesign-all.js',
-                    'src/js/iconset/iconset-octicon-all.js',
-                    'src/js/iconset/iconset-typicon-all.js',
-                    'src/js/iconset/iconset-weathericon-all.js'
+                    // 'src/js/iconset/iconset-elusiveicon-all.js',
+                    // 'src/js/iconset/iconset-flagicon-all.js',
+                    // 'src/js/iconset/iconset-fontawesome-all.js',
+                    'src/js/iconset/iconset-fontawesome5-all.js',
+                    // 'src/js/iconset/iconset-glyphicon-all.js',
+                    // 'src/js/iconset/iconset-ionicon-all.js',
+                    // 'src/js/iconset/iconset-mapicon-all.js',
+                    // 'src/js/iconset/iconset-materialdesign-all.js',
+                    // 'src/js/iconset/iconset-octicon-all.js',
+                    // 'src/js/iconset/iconset-typicon-all.js',
+                    // 'src/js/iconset/iconset-weathericon-all.js'
                 ],
                 dest: 'dist/js/bootstrap-iconpicker-iconset-all.js'
             },
@@ -97,16 +99,17 @@ module.exports = function(grunt) {
                     banner: banner.get('bootstrap-iconpicker-iconset.min.js')
                 },
                 src: [
-                    'temp/js/iconset/iconset-elusiveicon-all.min.js',
-                    'temp/js/iconset/iconset-flagicon-all.min.js',
-                    'temp/js/iconset/iconset-fontawesome-all.min.js',
-                    'temp/js/iconset/iconset-glyphicon-all.min.js',
-                    'temp/js/iconset/iconset-ionicon-all.min.js',
-                    'temp/js/iconset/iconset-mapicon-all.min.js',
-                    'temp/js/iconset/iconset-materialdesign-all.min.js',
-                    'temp/js/iconset/iconset-octicon-all.min.js',
-                    'temp/js/iconset/iconset-typicon-all.min.js',
-                    'temp/js/iconset/iconset-weathericon-all.min.js'
+                    // 'temp/js/iconset/iconset-elusiveicon-all.min.js',
+                    // 'temp/js/iconset/iconset-flagicon-all.min.js',
+                    // 'temp/js/iconset/iconset-fontawesome-all.min.js',
+                    'temp/js/iconset/iconset-fontawesome5-all.min.js',
+                    // 'temp/js/iconset/iconset-glyphicon-all.min.js',
+                    // 'temp/js/iconset/iconset-ionicon-all.min.js',
+                    // 'temp/js/iconset/iconset-mapicon-all.min.js',
+                    // 'temp/js/iconset/iconset-materialdesign-all.min.js',
+                    // 'temp/js/iconset/iconset-octicon-all.min.js',
+                    // 'temp/js/iconset/iconset-typicon-all.min.js',
+                    // 'temp/js/iconset/iconset-weathericon-all.min.js'
                 ],
                 dest: 'dist/js/bootstrap-iconpicker-iconset-all.min.js'
             }

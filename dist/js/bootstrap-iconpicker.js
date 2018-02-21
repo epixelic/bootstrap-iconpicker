@@ -2,7 +2,7 @@
 * File: bootstrap-iconpicker.js v1.9.0 by @victor-valencia
 * https://victor-valencia.github.com/bootstrap-iconpicker
 * ========================================================================
-* Copyright 2013-2017 Victor Valencia Rico.
+* Copyright 2013-2018 Victor Valencia Rico.
 * Licensed under MIT license.
 * https://github.com/victor-valencia/bootstrap-iconpicker/blob/master/LICENSE
 * ========================================================================
@@ -37,6 +37,7 @@
         elusiveicon: $.iconset_elusiveicon || Iconpicker.ICONSET_EMPTY,
         flagicon: $.iconset_flagicon || Iconpicker.ICONSET_EMPTY,
         fontawesome: $.iconset_fontawesome || Iconpicker.ICONSET_EMPTY,
+        fontawesome5: $.iconset_fontawesome5 || Iconpicker.ICONSET_EMPTY,
         glyphicon: $.iconset_glyphicon || Iconpicker.ICONSET_EMPTY,
         ionicon: $.iconset_ionicon || Iconpicker.ICONSET_EMPTY,
         mapicon: $.iconset_mapicon || Iconpicker.ICONSET_EMPTY,

@@ -1,14 +1,4 @@
 /*!========================================================================
-* File: bootstrap-iconpicker-iconset.js v1.9.0 by @victor-valencia
-* https://victor-valencia.github.com/bootstrap-iconpicker
-* ========================================================================
-* Copyright 2013-2018 Victor Valencia Rico.
-* Licensed under MIT license.
-* https://github.com/victor-valencia/bootstrap-iconpicker/blob/master/LICENSE
-* ========================================================================
-*/
-
-/*!========================================================================
  * Iconset: Font Awesome5
  * http://fortawesome.github.io/Font-Awesome/
  * ======================================================================== */
