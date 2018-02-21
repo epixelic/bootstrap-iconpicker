@@ -13,9 +13,10 @@
     // ICONPICKER PUBLIC CLASS DEFINITION
     // ==============================
     var Iconpicker = function (element, options) {
-      this.$element = $(element);
-      this.options  = $.extend({}, Iconpicker.DEFAULTS, this.$element.data());
-      this.options  = $.extend({}, this.options, options);
+        this.$element = $(element);
+        this.$element.data('icon', this.$element.val());
+        this.options  = $.extend({}, Iconpicker.DEFAULTS, this.$element.data());
+        this.options  = $.extend({}, this.options, options);
     };
 
     // ICONPICKER VERSION
@@ -125,9 +126,9 @@
         else {
             var result = [];
             $.each(icons, function(i, v) {
-               if (v.toLowerCase().indexOf(search) > -1) {
-                   result.push(v);
-               }
+                if (v.toLowerCase().indexOf(search) > -1) {
+                    result.push(v);
+                }
             });
             op.icons = result;
         }
@@ -154,7 +155,7 @@
         if (icon !== '' && op.selected >= 0) {
             op.icon = icon;
             if(op.inline === false){
-                el.find('input').val(icon);
+                el.val(icon);
                 el.find('i').attr('class', '').addClass(op.iconClass).addClass(icon);
             }
             if(icon === op.iconClassFix){
@@ -162,7 +163,7 @@
             }
             else {
                 el.trigger({ type: "change", icon: icon });
-                el.find('input').val(icon);
+                el.val(icon);
             }
             op.table.find('button.' + op.selectedClass).removeClass(op.selectedClass);
         }
@@ -278,7 +279,7 @@
                 if (i === 0 || i === op.cols - 1) {
                     var arrow = [
                         '<button class="btn btn-arrow ' + ((i === 0) ? 'btn-previous' : 'btn-next') + ' ' + op.arrowClass + '" value="' + ((i === 0) ? -1 : 1) + '">',
-                            '<span class="' + ((i === 0) ? op.arrowPrevIconClass : op.arrowNextIconClass) + '"></span>',
+                        '<span class="' + ((i === 0) ? op.arrowPrevIconClass : op.arrowNextIconClass) + '"></span>',
                         '</button>'
                     ];
                     td.append(arrow.join(''));
@@ -468,17 +469,19 @@
                 });
                 var name = (typeof $this.attr('name') !== 'undefined') ? 'name="' + $this.attr('name') + '"' : '';
 
-                if($this.prop('tagName') === 'BUTTON'){
-                    $this.empty()
+                if($this.prop('tagName') === 'INPUT'){
+                    /*$this.empty()
                         .append('<i></i>')
                         .append('<input type="hidden" ' + name + '></input>')
                         .append('<span class="caret"></span>')
-                        .addClass('iconpicker');
+                        .addClass('iconpicker');*/
+                    //console.log(op.iconset);
                     data.setIconset(op.iconset);
+                    //data.setIcon($this.val());
                     $this.on('click', function(e) {
                         e.preventDefault();
                         $this.popover({
-                            animation: false,
+                            animation: true,
                             trigger: 'manual',
                             html: true,
                             content: op.table,
@@ -530,5 +533,4 @@
     });
 
     $('button[role="iconpicker"],div[role="iconpicker"]').iconpicker();
-
 })(jQuery);
