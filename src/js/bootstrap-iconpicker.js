@@ -523,7 +523,7 @@
     // ICONPICKER DATA-API
     // ===============
     $(document).on('click', 'body', function (e) {
-        $('.iconpicker').each(function () {
+        $('.behavior-iconpicker').each(function () {
             //the 'is' for buttons that trigger popups
             //the 'has' for icons within a button that triggers a popup
             if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
