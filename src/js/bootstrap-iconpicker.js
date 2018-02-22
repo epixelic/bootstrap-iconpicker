@@ -12,8 +12,9 @@
 
     // ICONPICKER PUBLIC CLASS DEFINITION
     // ==============================
-    var Iconpicker = function (element, options) {
-        this.$element = $(element);
+    var Iconpicker = function (input, button, options) {
+        this.$element = $(input);
+        this.$button = $(button);
         this.$element.data('icon', this.$element.val());
         this.options  = $.extend({}, Iconpicker.DEFAULTS, this.$element.data());
         this.options  = $.extend({}, this.options, options);
@@ -96,6 +97,21 @@
         op.table.find('.search-control').off('keyup').on('keyup', function() {
             el.changeList(1);
         });
+
+        var that = this;
+        this.$element.on("change paste keyup", function(e){
+            // check if not recursive event
+            if(e.originalEvent !== undefined){
+
+                // check if entered icon name exists
+                if(that.options.icons.includes(e.target.value)){
+                    // console.log(e.originalEvent);
+                    // console.log(e.target.value);
+                    // console.log(this.options.icons);
+                    that.setIcon(e.target.value);
+                }
+            }
+        });
     };
 
     Iconpicker.prototype.changeList = function (page) {
@@ -148,10 +164,10 @@
         var op = this.options;
         var el = this.$element;
         op.selected = $.inArray(icon.replace(op.iconClassFix, ''), op.icons);
-        if (op.selected === -1) {
+        /*if (op.selected === -1) {
             op.selected = 0;
             icon = op.iconClassFix + op.icons[op.selected];
-        }
+        }*/
         if (icon !== '' && op.selected >= 0) {
             op.icon = icon;
             if(op.inline === false){
@@ -166,6 +182,10 @@
                 el.val(icon);
             }
             op.table.find('button.' + op.selectedClass).removeClass(op.selectedClass);
+
+            console.log("set data");
+            console.log(this.$button[0]);
+            this.$button.find('i').attr('class', '').addClass(icon);
         }
     };
 
@@ -243,6 +263,8 @@
             }
             tbody.append(tr);
         }
+
+
     };
 
     Iconpicker.prototype.updateIconsCount = function () {
@@ -446,10 +468,14 @@
     $.fn.iconpicker = function (option, params) {
         return this.each(function () {
             var $this = $(this);
+
+            var $input = $this.find("input");
+            var $button = $this.find("button");
+
             var data = $this.data('bs.iconpicker');
             var options = typeof option === 'object' && option;
             if (!data) {
-                $this.data('bs.iconpicker', (data = new Iconpicker(this, options)));
+                $this.data('bs.iconpicker', (data = new Iconpicker($input[0], $button[0], options)));
             }
             if (typeof option === 'string') {
                 if (typeof data[option] === 'undefined') {
@@ -469,44 +495,26 @@
                 });
                 var name = (typeof $this.attr('name') !== 'undefined') ? 'name="' + $this.attr('name') + '"' : '';
 
-                if($this.prop('tagName') === 'INPUT'){
-                    /*$this.empty()
-                        .append('<i></i>')
-                        .append('<input type="hidden" ' + name + '></input>')
-                        .append('<span class="caret"></span>')
-                        .addClass('iconpicker');*/
-                    //console.log(op.iconset);
-                    data.setIconset(op.iconset);
-                    //data.setIcon($this.val());
-                    $this.on('click', function(e) {
-                        e.preventDefault();
-                        $this.popover({
-                            animation: true,
-                            trigger: 'manual',
-                            html: true,
-                            content: op.table,
-                            container: 'body',
-                            placement: op.placement
-                        }).on('shown.bs.popover', function () {
-                            data.switchPage(op.icon);
-                            data.bindEvents();
-                        });
-                        $this.data('bs.popover').tip().addClass('iconpicker-popover');
-                        $this.popover('show');
+                data.setIconset(op.iconset);
+                //data.setIcon($this.val());
+                $button.on('click', function(e) {
+                    e.preventDefault();
+                    $button.popover({
+                        animation: true,
+                        trigger: 'manual',
+                        html: true,
+                        content: op.table,
+                        container: 'body',
+                        placement: op.placement
+                    }).on('shown.bs.popover', function () {
+                        data.switchPage(op.icon);
+                        data.bindEvents();
                     });
-                }
-                else{
-                    op.inline = true;
-                    data.setIconset(op.iconset);
-                    $this.empty()
-                        .append('<input type="hidden" ' + name + '></input>')
-                        .append(op.table)
-                        .addClass('iconpicker')
-                        .addClass(op.align);
-                    data.switchPage(op.icon);
-                    data.bindEvents();
-                }
+                    $button.data('bs.popover').tip().addClass('iconpicker-popover');
+                    $button.popover('show');
 
+                    $button.addClass('inconpicker-popover-button');
+                });
             }
         });
     };
@@ -523,7 +531,7 @@
     // ICONPICKER DATA-API
     // ===============
     $(document).on('click', 'body', function (e) {
-        $('.behavior-iconpicker').each(function () {
+        $('.inconpicker-popover-button').each(function () {
             //the 'is' for buttons that trigger popups
             //the 'has' for icons within a button that triggers a popup
             if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
